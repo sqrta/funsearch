@@ -1,0 +1,691 @@
+('priority', 'funcScore')
+generate*************
+    if (
+        term[0][0] == "x"
+        and term[1][0] == "y"
+        and term[2][0] == "y"
+        and int(term[1][1]) + int(term[2][1]) == m
+    ):
+        return True
+    if (
+        term[0][0] == "x"
+        and term[1][0] == "x"
+        and term[2][0] == "y"
+        and int(term[0][1]) + int(term[1][1]) == l
+    ):
+        return True
+    return False
+def fake_function_header():
+    if (
+        term[0][0] == "x"
+        and term[1][0] == "y"
+        and term[2][0] == "y"
+        and int(term[1][1]) + int(term[2][1]) == m
+    ):
+        return True
+    if (
+        term[0][0] == "x"
+        and term[1][0] == "x"
+        and term[2][0] == "y"
+        and int(term[0][1]) + int(term[1][1]) == l
+    ):
+        return True
+    return False
+first body****
+    if (
+        term[0][0] == "x"
+        and term[1][0] == "y"
+        and term[2][0] == "y"
+        and int(term[1][1]) + int(term[2][1]) == m
+    ):
+        return True
+    if (
+        term[0][0] == "x"
+        and term[1][0] == "x"
+        and term[2][0] == "y"
+        and int(term[0][1]) + int(term[1][1]) == l
+    ):
+        return True
+    return False
+
+
+version, None
+template************
+@funsearch.run
+def funcScore():
+    score = 0
+    for key in allCodes.keys():
+        l, m = key
+        best = 0
+        for code in allCodes[key]:
+            if priority(code["A"], l, m):
+                r = code["k"] * code["d"] / code["n"]
+                if r > best:
+                    best = r
+        score += best
+    return score
+
+
+def priority(term, l, m):
+    if (
+        term[0][0] == "x"
+        and term[1][0] == "y"
+        and term[2][0] == "y"
+        and int(term[1][1]) + int(term[2][1]) == m
+    ):
+        return True
+    if (
+        term[0][0] == "x"
+        and term[1][0] == "x"
+        and term[2][0] == "y"
+        and int(term[0][1]) + int(term[1][1]) == l
+    ):
+        return True
+    return False
+
+
+body**************
+    if (
+        term[0][0] == "x"
+        and term[1][0] == "y"
+        and term[2][0] == "y"
+        and int(term[1][1]) + int(term[2][1]) == m
+    ):
+        return True
+    if (
+        term[0][0] == "x"
+        and term[1][0] == "x"
+        and term[2][0] == "y"
+        and int(term[0][1]) + int(term[1][1]) == l
+    ):
+        return True
+    return False
+
+
+before*************
+@funsearch.run
+def funcScore():
+    score = 0
+    for key in allCodes.keys():
+        l, m = key
+        best = 0
+        for code in allCodes[key]:
+            if priority(code["A"], l, m):
+                r = code["k"] * code["d"] / code["n"]
+                if r > best:
+                    best = r
+        score += best
+    return score
+
+
+def priority(term, l, m):
+    if (
+        term[0][0] == "x"
+        and term[1][0] == "y"
+        and term[2][0] == "y"
+        and int(term[1][1]) + int(term[2][1]) == m
+    ):
+        return True
+    if (
+        term[0][0] == "x"
+        and term[1][0] == "x"
+        and term[2][0] == "y"
+        and int(term[0][1]) + int(term[1][1]) == l
+    ):
+        return True
+    return False
+
+
+after*************
+@funsearch.run
+def funcScore():
+    score = 0
+    for key in allCodes.keys():
+        l, m = key
+        best = 0
+        for code in allCodes[key]:
+            if priority(code["A"], l, m):
+                r = code["k"] * code["d"] / code["n"]
+                if r > best:
+                    best = r
+        score += best
+    return score
+
+
+def priority(term, l, m):
+    if (
+        term[0][0] == "x"
+        and term[1][0] == "y"
+        and term[2][0] == "y"
+        and int(term[1][1]) + int(term[2][1]) == m
+    ):
+        return True
+    if (
+        term[0][0] == "x"
+        and term[1][0] == "x"
+        and term[2][0] == "y"
+        and int(term[0][1]) + int(term[1][1]) == l
+    ):
+        return True
+    return False
+
+
+afterbody*************
+@funsearch.run
+def funcScore():
+    score = 0
+    for key in allCodes.keys():
+        l, m = key
+        best = 0
+        for code in allCodes[key]:
+            if priority(code["A"], l, m):
+                r = code["k"] * code["d"] / code["n"]
+                if r > best:
+                    best = r
+        score += best
+    return score
+
+
+def priority(term, l, m):
+    if (
+        term[0][0] == "x"
+        and term[1][0] == "y"
+        and term[2][0] == "y"
+        and int(term[1][1]) + int(term[2][1]) == m
+    ):
+        return True
+    if (
+        term[0][0] == "x"
+        and term[1][0] == "x"
+        and term[2][0] == "y"
+        and int(term[0][1]) + int(term[1][1]) == l
+    ):
+        return True
+    return False
+
+
+evolve_body*************
+    if (
+        term[0][0] == "x"
+        and term[1][0] == "y"
+        and term[2][0] == "y"
+        and int(term[1][1]) + int(term[2][1]) == m
+    ):
+        return True
+    if (
+        term[0][0] == "x"
+        and term[1][0] == "x"
+        and term[2][0] == "y"
+        and int(term[0][1]) + int(term[1][1]) == l
+    ):
+        return True
+    return False
+register
+def priority(term, l, m):
+    if (
+        term[0][0] == "x"
+        and term[1][0] == "y"
+        and term[2][0] == "y"
+        and int(term[1][1]) + int(term[2][1]) == m
+    ):
+        return True
+    if (
+        term[0][0] == "x"
+        and term[1][0] == "x"
+        and term[2][0] == "y"
+        and int(term[0][1]) + int(term[1][1]) == l
+    ):
+        return True
+    return False
+
+
+{3: 77.14066960117378} (77.14066960117378,)
+register
+def priority(term, l, m):
+    if (
+        term[0][0] == "x"
+        and term[1][0] == "y"
+        and term[2][0] == "y"
+        and int(term[1][1]) + int(term[2][1]) == m
+    ):
+        return True
+    if (
+        term[0][0] == "x"
+        and term[1][0] == "x"
+        and term[2][0] == "y"
+        and int(term[0][1]) + int(term[1][1]) == l
+    ):
+        return True
+    return False
+
+
+{3: 77.14066960117378} (77.14066960117378,)
+register
+def priority(term, l, m):
+    if (
+        term[0][0] == "x"
+        and term[1][0] == "y"
+        and term[2][0] == "y"
+        and int(term[1][1]) + int(term[2][1]) == m
+    ):
+        return True
+    if (
+        term[0][0] == "x"
+        and term[1][0] == "x"
+        and term[2][0] == "y"
+        and int(term[0][1]) + int(term[1][1]) == l
+    ):
+        return True
+    return False
+
+
+{3: 77.14066960117378} (77.14066960117378,)
+register
+def priority(term, l, m):
+    if (
+        term[0][0] == "x"
+        and term[1][0] == "y"
+        and term[2][0] == "y"
+        and int(term[1][1]) + int(term[2][1]) == m
+    ):
+        return True
+    if (
+        term[0][0] == "x"
+        and term[1][0] == "x"
+        and term[2][0] == "y"
+        and int(term[0][1]) + int(term[1][1]) == l
+    ):
+        return True
+    return False
+
+
+{3: 77.14066960117378} (77.14066960117378,)
+register
+def priority(term, l, m):
+    if (
+        term[0][0] == "x"
+        and term[1][0] == "y"
+        and term[2][0] == "y"
+        and int(term[1][1]) + int(term[2][1]) == m
+    ):
+        return True
+    if (
+        term[0][0] == "x"
+        and term[1][0] == "x"
+        and term[2][0] == "y"
+        and int(term[0][1]) + int(term[1][1]) == l
+    ):
+        return True
+    return False
+
+
+{3: 77.14066960117378} (77.14066960117378,)
+register
+def priority(term, l, m):
+    if (
+        term[0][0] == "x"
+        and term[1][0] == "y"
+        and term[2][0] == "y"
+        and int(term[1][1]) + int(term[2][1]) == m
+    ):
+        return True
+    if (
+        term[0][0] == "x"
+        and term[1][0] == "x"
+        and term[2][0] == "y"
+        and int(term[0][1]) + int(term[1][1]) == l
+    ):
+        return True
+    return False
+
+
+{3: 77.14066960117378} (77.14066960117378,)
+register
+def priority(term, l, m):
+    if (
+        term[0][0] == "x"
+        and term[1][0] == "y"
+        and term[2][0] == "y"
+        and int(term[1][1]) + int(term[2][1]) == m
+    ):
+        return True
+    if (
+        term[0][0] == "x"
+        and term[1][0] == "x"
+        and term[2][0] == "y"
+        and int(term[0][1]) + int(term[1][1]) == l
+    ):
+        return True
+    return False
+
+
+{3: 77.14066960117378} (77.14066960117378,)
+register
+def priority(term, l, m):
+    if (
+        term[0][0] == "x"
+        and term[1][0] == "y"
+        and term[2][0] == "y"
+        and int(term[1][1]) + int(term[2][1]) == m
+    ):
+        return True
+    if (
+        term[0][0] == "x"
+        and term[1][0] == "x"
+        and term[2][0] == "y"
+        and int(term[0][1]) + int(term[1][1]) == l
+    ):
+        return True
+    return False
+
+
+{3: 77.14066960117378} (77.14066960117378,)
+register
+def priority(term, l, m):
+    if (
+        term[0][0] == "x"
+        and term[1][0] == "y"
+        and term[2][0] == "y"
+        and int(term[1][1]) + int(term[2][1]) == m
+    ):
+        return True
+    if (
+        term[0][0] == "x"
+        and term[1][0] == "x"
+        and term[2][0] == "y"
+        and int(term[0][1]) + int(term[1][1]) == l
+    ):
+        return True
+    return False
+
+
+{3: 77.14066960117378} (77.14066960117378,)
+register
+def priority(term, l, m):
+    if (
+        term[0][0] == "x"
+        and term[1][0] == "y"
+        and term[2][0] == "y"
+        and int(term[1][1]) + int(term[2][1]) == m
+    ):
+        return True
+    if (
+        term[0][0] == "x"
+        and term[1][0] == "x"
+        and term[2][0] == "y"
+        and int(term[0][1]) + int(term[1][1]) == l
+    ):
+        return True
+    return False
+
+
+{3: 77.14066960117378} (77.14066960117378,)
+prompt*****************
+@funsearch.run
+def priority_v0(term, l, m):
+    if (
+        term[0][0] == "x"
+        and term[1][0] == "y"
+        and term[2][0] == "y"
+        and int(term[1][1]) + int(term[2][1]) == m
+    ):
+        return True
+    if (
+        term[0][0] == "x"
+        and term[1][0] == "x"
+        and term[2][0] == "y"
+        and int(term[0][1]) + int(term[1][1]) == l
+    ):
+        return True
+    return False
+
+
+def priority_v1(term, l, m):
+  """Improved version of `priority_v0`."""
+
+
+prog****************
+['    if (\n        term[0][0] == "x"\n        and term[1][0] == "y"\n        and term[2][0] == "y"\n        and int(term[1][1]) + int(term[2][1]) == m\n    ):\n        return True\n    if (\n        term[0][0] == "x"\n        and term[1][0] == "x"\n        and term[2][0] == "y"\n        and int(term[0][1]) + int(term[1][1]) == l\n    ):\n        return True\n    return False\n']
+generate*************
+    if (
+        term[0][0] == "x"
+        and term[1][0] == "y"
+        and term[2][0] == "y"
+        and int(term[1][1]) + int(term[2][1]) == m
+    ):
+        return True
+    if (
+        term[0][0] == "x"
+        and term[1][0] == "x"
+        and term[2][0] == "y"
+        and int(term[0][1]) + int(term[1][1]) == l
+    ):
+        return True
+    return False
+
+def fake_function_header():
+    if (
+        term[0][0] == "x"
+        and term[1][0] == "y"
+        and term[2][0] == "y"
+        and int(term[1][1]) + int(term[2][1]) == m
+    ):
+        return True
+    if (
+        term[0][0] == "x"
+        and term[1][0] == "x"
+        and term[2][0] == "y"
+        and int(term[0][1]) + int(term[1][1]) == l
+    ):
+        return True
+    return False
+
+first body****
+    if (
+        term[0][0] == "x"
+        and term[1][0] == "y"
+        and term[2][0] == "y"
+        and int(term[1][1]) + int(term[2][1]) == m
+    ):
+        return True
+    if (
+        term[0][0] == "x"
+        and term[1][0] == "x"
+        and term[2][0] == "y"
+        and int(term[0][1]) + int(term[1][1]) == l
+    ):
+        return True
+    return False
+
+
+version, 2
+template************
+@funsearch.run
+def funcScore():
+    score = 0
+    for key in allCodes.keys():
+        l, m = key
+        best = 0
+        for code in allCodes[key]:
+            if priority(code["A"], l, m):
+                r = code["k"] * code["d"] / code["n"]
+                if r > best:
+                    best = r
+        score += best
+    return score
+
+
+def priority(term, l, m):
+    if (
+        term[0][0] == "x"
+        and term[1][0] == "y"
+        and term[2][0] == "y"
+        and int(term[1][1]) + int(term[2][1]) == m
+    ):
+        return True
+    if (
+        term[0][0] == "x"
+        and term[1][0] == "x"
+        and term[2][0] == "y"
+        and int(term[0][1]) + int(term[1][1]) == l
+    ):
+        return True
+    return False
+
+
+body**************
+    if (
+        term[0][0] == "x"
+        and term[1][0] == "y"
+        and term[2][0] == "y"
+        and int(term[1][1]) + int(term[2][1]) == m
+    ):
+        return True
+    if (
+        term[0][0] == "x"
+        and term[1][0] == "x"
+        and term[2][0] == "y"
+        and int(term[0][1]) + int(term[1][1]) == l
+    ):
+        return True
+    return False
+
+
+before*************
+@funsearch.run
+def funcScore():
+    score = 0
+    for key in allCodes.keys():
+        l, m = key
+        best = 0
+        for code in allCodes[key]:
+            if priority(code["A"], l, m):
+                r = code["k"] * code["d"] / code["n"]
+                if r > best:
+                    best = r
+        score += best
+    return score
+
+
+def priority(term, l, m):
+    if (
+        term[0][0] == "x"
+        and term[1][0] == "y"
+        and term[2][0] == "y"
+        and int(term[1][1]) + int(term[2][1]) == m
+    ):
+        return True
+    if (
+        term[0][0] == "x"
+        and term[1][0] == "x"
+        and term[2][0] == "y"
+        and int(term[0][1]) + int(term[1][1]) == l
+    ):
+        return True
+    return False
+
+
+after*************
+@funsearch.run
+def funcScore():
+    score = 0
+    for key in allCodes.keys():
+        l, m = key
+        best = 0
+        for code in allCodes[key]:
+            if priority(code["A"], l, m):
+                r = code["k"] * code["d"] / code["n"]
+                if r > best:
+                    best = r
+        score += best
+    return score
+
+
+def priority(term, l, m):
+    if (
+        term[0][0] == "x"
+        and term[1][0] == "y"
+        and term[2][0] == "y"
+        and int(term[1][1]) + int(term[2][1]) == m
+    ):
+        return True
+    if (
+        term[0][0] == "x"
+        and term[1][0] == "x"
+        and term[2][0] == "y"
+        and int(term[0][1]) + int(term[1][1]) == l
+    ):
+        return True
+    return False
+
+
+afterbody*************
+@funsearch.run
+def funcScore():
+    score = 0
+    for key in allCodes.keys():
+        l, m = key
+        best = 0
+        for code in allCodes[key]:
+            if priority(code["A"], l, m):
+                r = code["k"] * code["d"] / code["n"]
+                if r > best:
+                    best = r
+        score += best
+    return score
+
+
+def priority(term, l, m):
+    if (
+        term[0][0] == "x"
+        and term[1][0] == "y"
+        and term[2][0] == "y"
+        and int(term[1][1]) + int(term[2][1]) == m
+    ):
+        return True
+    if (
+        term[0][0] == "x"
+        and term[1][0] == "x"
+        and term[2][0] == "y"
+        and int(term[0][1]) + int(term[1][1]) == l
+    ):
+        return True
+    return False
+
+
+evolve_body*************
+    if (
+        term[0][0] == "x"
+        and term[1][0] == "y"
+        and term[2][0] == "y"
+        and int(term[1][1]) + int(term[2][1]) == m
+    ):
+        return True
+    if (
+        term[0][0] == "x"
+        and term[1][0] == "x"
+        and term[2][0] == "y"
+        and int(term[0][1]) + int(term[1][1]) == l
+    ):
+        return True
+    return False
+register
+def priority(term, l, m):
+    if (
+        term[0][0] == "x"
+        and term[1][0] == "y"
+        and term[2][0] == "y"
+        and int(term[1][1]) + int(term[2][1]) == m
+    ):
+        return True
+    if (
+        term[0][0] == "x"
+        and term[1][0] == "x"
+        and term[2][0] == "y"
+        and int(term[0][1]) + int(term[1][1]) == l
+    ):
+        return True
+    return False
+
+
+{3: 77.14066960117378} (77.14066960117378,)
