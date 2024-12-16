@@ -72,7 +72,7 @@ def main(specification: str, inputs: Sequence[Any], config: config_lib.Config):
             with open(config.init_template + file, "r") as f:
                 head, tail = f.read().split("\n", 1)
                 evaluators[0].analyse(tail, island_id=None, version_generated=None)
-
+        print("Initialization finished")
     samplers = [
         sampler.Sampler(
             database,

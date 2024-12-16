@@ -30,8 +30,11 @@ class LLM:
 
     def _draw_sample(self, prompt: str) -> str:
         """Returns a predicted continuation of `prompt`."""
-
-        raise NotImplementedError("Must provide a language model.")
+        # Make sure your LLM only produce a pure python function without discription at the start.
+        with open(f"init_template/minit.py", "r") as f:
+            content = f.read()
+            return content
+        # raise NotImplementedError("Must provide a language model.")
 
     def draw_samples(self, prompt: str) -> Collection[str]:
         """Returns multiple predicted continuations of `prompt`."""
@@ -62,14 +65,26 @@ class Sampler:
             iter += 1
             prompt = self._database.get_prompt()
             samples = self._llm.draw_samples(self._prompt_manipulate(prompt.code))
-            # print(f"iterations: {iter}, lensam: {len(samples)}")
+            Island_index = 0
             # best = self._database._best_program_per_island[0]
-            # score = self._database._best_score_per_island[0]
-            # print(score)
-            # print(str(best))
+            score = self._database._best_score_per_island[Island_index]
+            print(
+                f"iteration {iter}: the best score in Island {Island_index} is {score}"
+            )
             # This loop can be executed in parallel on remote evaluator machines.
             for sample in samples:
                 chosen_evaluator = np.random.choice(self._evaluators)
+                # remove the head of the function
+                # the input to chosen_evaluator.analyse should only be the body
+                """
+                e.g.
+                def foo():
+                    return True
+                =>
+                return True
+                """
+
+                sample_body = "\n".join(sample.split("\n")[1:])
                 chosen_evaluator.analyse(
-                    sample, prompt.island_id, prompt.version_generated
+                    sample_body, prompt.island_id, prompt.version_generated
                 )

@@ -73,10 +73,9 @@ def _sample_to_program(
     function_to_evolve: str,
 ) -> tuple[code_manipulation.Function, str]:
     """Returns the compiled generated function and the full runnable program."""
+
     body = _trim_function_body(generated_code)
-    # lines = generated_code.splitlines()
-    # print("line0", lines[0])
-    # body = "\n".join(lines)
+
     if version_generated is not None:
         body = code_manipulation.rename_function_calls(
             body, f"{function_to_evolve}_v{version_generated}", function_to_evolve

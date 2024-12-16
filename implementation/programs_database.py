@@ -128,7 +128,7 @@ class ProgramsDatabase:
             self._best_scores_per_test_per_island[island_id] = scores_per_test
             self._best_score_per_island[island_id] = score
             logging.info("Best score of island %d increased to %s", island_id, score)
-            print(f"Best score of island {island_id} increased to {score}")
+            # print(f"Best score of island {island_id} increased to {score}")
 
     def register_program(
         self,
@@ -228,9 +228,6 @@ class Island:
             1 - (self._num_programs % period) / period
         )
         probabilities = _softmax(cluster_scores, temperature)
-        print(f"progNum: {self._num_programs}")
-        print(f"scores: {cluster_scores}")
-        print(f"prob: {probabilities}")
         # At the beginning of an experiment when we have few clusters, place fewer
         # programs into the prompt.
         functions_per_prompt = min(len(self._clusters), self._functions_per_prompt)
