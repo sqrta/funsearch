@@ -30,17 +30,8 @@ class LLM:
 
     def _draw_sample(self, prompt: str) -> str:
         """Returns a predicted continuation of `prompt`."""
-        import os
-        import random
 
-        # print("prompt")
-        # print(prompt)
-        files = os.listdir("../../BBcodeSearch/init_template")
-        index = random.randint(0, len(files) - 1)
-        print(f"index: {index}")
-        with open(f"../../BBcodeSearch/init_template/init{index}.py", "r") as f:
-            content = f.readlines()
-            return "".join(content[1:])
+        raise NotImplementedError("Must provide a language model.")
 
     def draw_samples(self, prompt: str) -> Collection[str]:
         """Returns multiple predicted continuations of `prompt`."""
@@ -55,20 +46,27 @@ class Sampler:
         database: programs_database.ProgramsDatabase,
         evaluators: Sequence[evaluator.Evaluator],
         samples_per_prompt: int,
+        prompt_manipulate,
     ) -> None:
         self._database = database
         self._evaluators = evaluators
         self._llm = LLM(samples_per_prompt)
+        self._prompt_manipulate = prompt_manipulate
 
     def sample(self, iterations):
         """Continuously gets prompts, samples programs, sends them for analysis."""
         iter = 0
 
         while iter < iterations:
-            print(f"iterations: {iter}")
+
             iter += 1
             prompt = self._database.get_prompt()
-            samples = self._llm.draw_samples(prompt.code)
+            samples = self._llm.draw_samples(self._prompt_manipulate(prompt.code))
+            # print(f"iterations: {iter}, lensam: {len(samples)}")
+            # best = self._database._best_program_per_island[0]
+            # score = self._database._best_score_per_island[0]
+            # print(score)
+            # print(str(best))
             # This loop can be executed in parallel on remote evaluator machines.
             for sample in samples:
                 chosen_evaluator = np.random.choice(self._evaluators)

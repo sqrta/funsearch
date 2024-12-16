@@ -15,6 +15,7 @@
 
 """Configuration of a FunSearch experiment."""
 import dataclasses
+from typing import Callable
 
 
 @dataclasses.dataclass(frozen=True)
@@ -38,6 +39,34 @@ class ProgramsDatabaseConfig:
     cluster_sampling_temperature_period: int = 30_000
 
 
+class Sandbox:
+    """Sandbox for executing generated code."""
+
+    def __init__(self, func2Run):
+        self._func2Run = func2Run
+
+    def run(
+        self,
+        program: str,
+        function_to_run: str,
+        test_input: str,
+        timeout_seconds: int,
+    ):
+        """Returns `function_to_run(test_input)` and whether execution succeeded."""
+        import os
+
+        # print(program)
+        prog = program.replace("@funsearch.run", "")
+
+        # os.chdir("../../BBcodeSearch")
+        # print("prog")
+        # print(prog)
+        # os.chdir("../funsearch/implementation")
+        return self._func2Run(prog)
+        # raise NotImplementedError(
+        #     'Must provide a sandbox for executing untrusted code.')
+
+
 @dataclasses.dataclass(frozen=True)
 class Config:
     """Configuration of a FunSearch experiment.
@@ -57,6 +86,9 @@ class Config:
     programs_database: ProgramsDatabaseConfig = dataclasses.field(
         default_factory=ProgramsDatabaseConfig
     )
+    sandbox: Sandbox = Sandbox(lambda prog: (0, True))
+    prompt_manipulate: Callable[[str], str] = lambda prompt: prompt
+    init_template: str = ""
     num_samplers: int = 15
     num_evaluators: int = 140
     samples_per_prompt: int = 4

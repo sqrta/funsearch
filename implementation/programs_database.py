@@ -228,7 +228,9 @@ class Island:
             1 - (self._num_programs % period) / period
         )
         probabilities = _softmax(cluster_scores, temperature)
-
+        print(f"progNum: {self._num_programs}")
+        print(f"scores: {cluster_scores}")
+        print(f"prob: {probabilities}")
         # At the beginning of an experiment when we have few clusters, place fewer
         # programs into the prompt.
         functions_per_prompt = min(len(self._clusters), self._functions_per_prompt)

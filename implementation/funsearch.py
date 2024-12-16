@@ -22,6 +22,7 @@ import config as config_lib
 import evaluator
 import programs_database
 import sampler
+import os
 
 
 def _extract_function_names(specification: str) -> tuple[str, str]:
@@ -47,7 +48,8 @@ def main(specification: str, inputs: Sequence[Any], config: config_lib.Config):
     database = programs_database.ProgramsDatabase(
         config.programs_database, template, function_to_evolve
     )
-
+    sandbox = config.sandbox
+    prompt_manipulate = config.prompt_manipulate
     evaluators = []
 
     for _ in range(config.num_evaluators):
@@ -57,15 +59,27 @@ def main(specification: str, inputs: Sequence[Any], config: config_lib.Config):
                 template,
                 function_to_evolve,
                 function_to_run,
+                sandbox,
                 inputs,
             )
         )
     # We send the initial implementation to Pbe analysed by one of the evaluators.
     initial = template.get_function(function_to_evolve).body
     evaluators[0].analyse(initial, island_id=None, version_generated=None)
+    if config.init_template != "":
+        files = os.listdir(config.init_template)
+        for file in files:
+            with open(config.init_template + file, "r") as f:
+                head, tail = f.read().split("\n", 1)
+                evaluators[0].analyse(tail, island_id=None, version_generated=None)
 
     samplers = [
-        sampler.Sampler(database, evaluators, config.samples_per_prompt)
+        sampler.Sampler(
+            database,
+            evaluators,
+            config.samples_per_prompt,
+            prompt_manipulate=prompt_manipulate,
+        )
         for _ in range(config.num_samplers)
     ]
 

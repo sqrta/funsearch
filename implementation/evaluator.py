@@ -21,6 +21,7 @@ from typing import Any
 
 import code_manipulation
 import programs_database
+from config import Sandbox
 
 
 class _FunctionLineVisitor(ast.NodeVisitor):
@@ -86,37 +87,6 @@ def _sample_to_program(
     return evolved_function, str(program)
 
 
-class Sandbox:
-    """Sandbox for executing generated code."""
-
-    def run(
-        self,
-        program: str,
-        function_to_run: str,
-        test_input: str,
-        timeout_seconds: int,
-    ) -> tuple[Any, bool]:
-        """Returns `function_to_run(test_input)` and whether execution succeeded."""
-        import os
-
-        # print(program)
-        prog = program.replace("@funsearch.run", "")
-
-        os.chdir("../../BBcodeSearch")
-        # print("prog")
-        # print(prog)
-        with open("Priority.py", "w") as f:
-            f.write(prog)
-        os.system("python3 evalFunc.py")
-        with open("result", "r") as f:
-            res = f.read().rstrip()
-            result = float(res)
-        os.chdir("../funsearch/implementation")
-        return result, True
-        # raise NotImplementedError(
-        #     'Must provide a sandbox for executing untrusted code.')
-
-
 def _calls_ancestor(program: str, function_to_evolve: str) -> bool:
     """Returns whether the generated function is calling an earlier version."""
     for name in code_manipulation.get_functions_called(program):
@@ -138,6 +108,7 @@ class Evaluator:
         template: code_manipulation.Program,
         function_to_evolve: str,
         function_to_run: str,
+        sandbox: Sandbox,
         inputs: Sequence[Any],
         timeout_seconds: int = 30,
     ):
@@ -147,7 +118,7 @@ class Evaluator:
         self._function_to_run = function_to_run
         self._inputs = inputs
         self._timeout_seconds = timeout_seconds
-        self._sandbox = Sandbox()
+        self._sandbox = sandbox
 
     def analyse(
         self,
