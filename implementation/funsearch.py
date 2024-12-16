@@ -40,7 +40,11 @@ def _extract_function_names(specification: str) -> tuple[str, str]:
     return evolve_functions[0], run_functions[0]
 
 
-def main(specification: str, inputs: Sequence[Any], config: config_lib.Config):
+def main(
+    specification: str,
+    inputs: Sequence[Any],
+    config: config_lib.Config,
+):
     """Launches a FunSearch experiment."""
     function_to_evolve, function_to_run = _extract_function_names(specification)
 

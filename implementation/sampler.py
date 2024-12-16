@@ -31,10 +31,8 @@ class LLM:
     def _draw_sample(self, prompt: str) -> str:
         """Returns a predicted continuation of `prompt`."""
         # Make sure your LLM only produce a pure python function without discription at the start.
-        with open(f"init_template/minit.py", "r") as f:
-            content = f.read()
-            return content
-        # raise NotImplementedError("Must provide a language model.")
+
+        raise NotImplementedError("Must provide a language model.")
 
     def draw_samples(self, prompt: str) -> Collection[str]:
         """Returns multiple predicted continuations of `prompt`."""
